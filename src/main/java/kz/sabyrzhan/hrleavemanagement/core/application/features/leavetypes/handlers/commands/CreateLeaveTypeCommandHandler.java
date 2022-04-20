@@ -3,6 +3,7 @@ package kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.hand
 import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.commands.CreateLeaveTypeCommand;
+import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveType;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -17,6 +18,6 @@ public class CreateLeaveTypeCommandHandler implements RequestHandler<CreateLeave
     @Override
     public Mono<Integer> handle(CreateLeaveTypeCommand request) {
         var leaveType = request.getLeaveType().toLeaveType();
-        return leaveTypeRepository.save(leaveType).map(result -> result.getId());
+        return leaveTypeRepository.save(leaveType).map(LeaveType::getId);
     }
 }

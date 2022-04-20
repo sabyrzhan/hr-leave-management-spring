@@ -31,4 +31,20 @@ public class LeaveRequestDTO extends BaseDTO {
         this.approved = from.isApproved();
         this.cancelled = from.isCancelled();
     }
+
+    public LeaveRequest toLeaveRequest() {
+        var leaveRequest = new LeaveRequest();
+        leaveRequest.setId(id);
+        leaveRequest.setStartDate(startDate);
+        leaveRequest.setEndDate(endDate);
+        leaveRequest.setLeaveType(leaveType.toLeaveType());
+        leaveRequest.setLeaveTypeId(leaveTypeId);
+        leaveRequest.setDateRequested(dateRequested);
+        leaveRequest.setRequestComments(requestComments);
+        leaveRequest.setDateActioned(dateActioned);
+        leaveRequest.setApproved(approved);
+        leaveRequest.setCancelled(cancelled);
+
+        return leaveRequest;
+    }
 }

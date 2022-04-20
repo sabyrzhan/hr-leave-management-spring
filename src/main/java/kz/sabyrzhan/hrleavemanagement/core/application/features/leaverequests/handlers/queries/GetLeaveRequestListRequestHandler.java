@@ -3,7 +3,7 @@ package kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.h
 import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveRequestRepositoryExtended;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.LeaveRequestListDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
-import kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.requests.GetLeaveRequestListRequest;
+import kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.requests.queries.GetLeaveRequestListRequest;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 

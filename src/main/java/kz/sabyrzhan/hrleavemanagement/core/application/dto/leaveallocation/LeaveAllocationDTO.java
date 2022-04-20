@@ -19,4 +19,14 @@ public class LeaveAllocationDTO extends BaseDTO {
         this.leaveTypeId = this.leaveType.getId();
         this.period = from.getPeriod();
     }
+
+    public LeaveAllocation toLeaveAllocation() {
+        var leaveAllocation = new LeaveAllocation();
+        leaveAllocation.setId(getId());
+        leaveAllocation.setLeaveType(leaveType.toLeaveType());
+        leaveAllocation.setLeaveTypeId(leaveTypeId);
+        leaveAllocation.setPeriod(period);
+
+        return leaveAllocation;
+    }
 }
