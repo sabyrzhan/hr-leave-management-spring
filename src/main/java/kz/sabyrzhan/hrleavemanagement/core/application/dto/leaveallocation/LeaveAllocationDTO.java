@@ -1,5 +1,6 @@
-package kz.sabyrzhan.hrleavemanagement.core.application.dto;
+package kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation;
 
+import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.LeaveTypeDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.common.BaseDTO;
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveAllocation;
 import lombok.Getter;

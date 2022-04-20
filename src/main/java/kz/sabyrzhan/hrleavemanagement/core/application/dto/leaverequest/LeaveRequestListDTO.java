@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.dto.LeaveTypeDTO;
+import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.LeaveTypeDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.common.BaseDTO;
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveRequest;
 import lombok.Getter;

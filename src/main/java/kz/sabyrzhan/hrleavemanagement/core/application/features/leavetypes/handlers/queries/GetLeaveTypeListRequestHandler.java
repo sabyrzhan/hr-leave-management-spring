@@ -1,7 +1,7 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.queries;
 
 import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeRepository;
-import kz.sabyrzhan.hrleavemanagement.core.application.dto.LeaveTypeDTO;
+import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.LeaveTypeDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.queries.GetLeaveTypeListRequest;
 import org.springframework.stereotype.Component;
