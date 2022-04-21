@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mariadb:
+    env_file:
+      - .env
+    image: mariadb:10
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: "${DB_PASSWORD}"
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
