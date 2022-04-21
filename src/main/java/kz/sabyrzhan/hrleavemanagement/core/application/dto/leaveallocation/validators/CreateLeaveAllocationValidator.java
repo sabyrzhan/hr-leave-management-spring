@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.validators;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeRepository;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveTypeRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.common.Validator;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.CreateLeaveAllocationDTO;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
-import java.time.Instant;
 import java.time.LocalDate;
 
 @Component

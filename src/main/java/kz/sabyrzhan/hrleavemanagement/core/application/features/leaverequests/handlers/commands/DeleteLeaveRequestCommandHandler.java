@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.handlers.commands;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveRequestRepository;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveRequestRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.common.requests.commands.DeleteItemCommand;
 import org.springframework.stereotype.Component;

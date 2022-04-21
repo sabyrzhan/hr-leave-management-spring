@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.validators;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeRepository;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveTypeRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.common.Validator;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.CreateLeaveRequestDTO;
 import org.springframework.http.HttpStatus;

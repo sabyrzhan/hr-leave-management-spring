@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.handlers.queries;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveRequestRepositoryExtended;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveRequestRepositoryExtended;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.LeaveRequestDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.requests.queries.GetLeaveRequestDetailRequest;

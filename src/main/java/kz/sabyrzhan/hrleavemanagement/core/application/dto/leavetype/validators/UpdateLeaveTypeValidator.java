@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.validators;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeRepository;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveTypeRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.common.Validator;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.LeaveTypeDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveTypeMapper;

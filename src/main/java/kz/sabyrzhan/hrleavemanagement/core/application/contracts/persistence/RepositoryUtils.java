@@ -1,4 +1,4 @@
-package kz.sabyrzhan.hrleavemanagement.core.application.contracts;
+package kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence;
 
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveType;
 

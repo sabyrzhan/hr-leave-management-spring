@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.features.leaveallocations.handlers.commands;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveAllocationRepository;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveAllocationRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leaveallocations.requests.commands.UpdateLeaveAllocationCommand;
 import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveAllocationMapper;

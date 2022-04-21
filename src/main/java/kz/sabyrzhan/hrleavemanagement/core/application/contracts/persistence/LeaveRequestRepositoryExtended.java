@@ -1,4 +1,4 @@
-package kz.sabyrzhan.hrleavemanagement.core.application.contracts;
+package kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence;
 
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveRequest;
 import org.springframework.stereotype.Repository;
@@ -15,6 +15,15 @@ public class LeaveRequestRepositoryExtended {
                                           LeaveTypeRepository leaveTypeRepository) {
         this.leaveRequestRepository = leaveRequestRepository;
         this.leaveTypeRepository = leaveTypeRepository;
+    }
+
+    public Mono<Boolean> changeApprovalStatus(int id, boolean status) {
+        return leaveRequestRepository
+                .findById(id)
+                .flatMap(leaveRequest -> {
+                    leaveRequest.setApproved(status);
+                    return leaveRequestRepository.save(leaveRequest).thenReturn(true);
+                });
     }
 
     public Mono<List<LeaveRequest>> findAll() {

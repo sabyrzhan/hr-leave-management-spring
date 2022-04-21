@@ -1,6 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.commands;
 
-import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeRepository;
+import kz.sabyrzhan.hrleavemanagement.core.application.contracts.persistence.LeaveTypeRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.commands.UpdateLeaveTypeCommand;
 import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveTypeMapper;
