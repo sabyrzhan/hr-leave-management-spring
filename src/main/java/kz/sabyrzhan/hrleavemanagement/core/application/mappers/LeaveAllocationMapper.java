@@ -1,5 +1,6 @@
 package kz.sabyrzhan.hrleavemanagement.core.application.mappers;
 
+import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.CreateLeaveAllocationDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.LeaveAllocationDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.UpdateLeaveAllocationDTO;
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveAllocation;
@@ -12,7 +13,8 @@ public interface LeaveAllocationMapper {
     LeaveAllocationMapper INSTANCE = Mappers.getMapper(LeaveAllocationMapper.class);
 
     LeaveAllocationDTO convertToDTO(LeaveAllocation from);
-    LeaveAllocation createFromDTO(LeaveAllocationDTO from);
+    LeaveAllocation createFromDTO(CreateLeaveAllocationDTO from);
+    CreateLeaveAllocationDTO copyFromUpdateDTO(UpdateLeaveAllocationDTO from);
 
     void updateLeaveAllocation(UpdateLeaveAllocationDTO source, @MappingTarget LeaveAllocation target);
 }

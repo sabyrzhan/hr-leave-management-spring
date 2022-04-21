@@ -4,6 +4,7 @@ import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveTypeReposi
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.LeaveTypeDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.queries.GetLeaveTypeDetailRequest;
+import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveTypeMapper;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -18,7 +19,7 @@ public class GetLeaveTypeDetailRequestHandler implements RequestHandler<GetLeave
     @Override
     public Mono<LeaveTypeDTO> handle(GetLeaveTypeDetailRequest request) {
         return leaveTypeRepository.findById(request.getId())
-                .map(LeaveTypeDTO::new)
+                .map(LeaveTypeMapper.INSTANCE::createFromLeaveType)
                 .onErrorResume(t -> Mono.error(t));
     }
 }
