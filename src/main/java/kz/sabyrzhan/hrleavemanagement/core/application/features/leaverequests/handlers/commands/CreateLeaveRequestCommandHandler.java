@@ -3,6 +3,7 @@ package kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.h
 import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveRequestRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.requests.commands.CreateLeaveRequestCommand;
+import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveRequestMapper;
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveRequest;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
@@ -17,7 +18,7 @@ public class CreateLeaveRequestCommandHandler implements RequestHandler<CreateLe
 
     @Override
     public Mono<Integer> handle(CreateLeaveRequestCommand request) {
-        var leaveRequest = request.getLeaveRequest().toLeaveRequest();
+        var leaveRequest = LeaveRequestMapper.INSTANCE.createFromDTO(request.getLeaveRequest());
         return repository.save(leaveRequest).map(LeaveRequest::getId);
     }
 }

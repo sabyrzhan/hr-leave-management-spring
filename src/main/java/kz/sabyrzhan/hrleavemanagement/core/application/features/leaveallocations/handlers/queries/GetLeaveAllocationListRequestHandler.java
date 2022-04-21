@@ -4,6 +4,7 @@ import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveAllocation
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.LeaveAllocationDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leaveallocations.requests.queries.GetLeaveAllocationsListRequest;
+import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveAllocationMapper;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -20,6 +21,6 @@ public class GetLeaveAllocationListRequestHandler implements RequestHandler<GetL
     @Override
     public Mono<List<LeaveAllocationDTO>> handle(GetLeaveAllocationsListRequest request) {
         return leaveAllocationRepositoryExtended.findAll()
-                .map(list -> list.stream().map(LeaveAllocationDTO::new).toList());
+                .map(list -> list.stream().map(LeaveAllocationMapper.INSTANCE::convertToDTO).toList());
     }
 }

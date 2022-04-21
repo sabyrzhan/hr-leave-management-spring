@@ -3,6 +3,7 @@ package kz.sabyrzhan.hrleavemanagement.core.application.features.leaveallocation
 import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveAllocationRepository;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leaveallocations.requests.commands.CreateLeaveAllocationCommand;
+import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveAllocationMapper;
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveAllocation;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
@@ -17,7 +18,7 @@ public class CreateLeaveAllocationCommandHandler implements RequestHandler<Creat
 
     @Override
     public Mono<Integer> handle(CreateLeaveAllocationCommand request) {
-        var leaveAllocation = request.getLeaveAllocation().toLeaveAllocation();
+        var leaveAllocation = LeaveAllocationMapper.INSTANCE.createFromDTO(request.getLeaveAllocation());
         return repository.save(leaveAllocation).map(LeaveAllocation::getId);
     }
 }

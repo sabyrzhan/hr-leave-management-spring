@@ -4,6 +4,7 @@ import kz.sabyrzhan.hrleavemanagement.core.application.contracts.LeaveRequestRep
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.LeaveRequestListDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.RequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.requests.queries.GetLeaveRequestListRequest;
+import kz.sabyrzhan.hrleavemanagement.core.application.mappers.LeaveRequestMapper;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -20,6 +21,6 @@ public class GetLeaveRequestListRequestHandler implements RequestHandler<GetLeav
     @Override
     public Mono<List<LeaveRequestListDTO>> handle(GetLeaveRequestListRequest request) {
         return leaveRequestRepositoryExtended.findAll()
-                .map(list -> list.stream().map(LeaveRequestListDTO::new).toList());
+                .map(list -> list.stream().map(LeaveRequestMapper.INSTANCE::convertToListDTO).toList());
     }
 }
