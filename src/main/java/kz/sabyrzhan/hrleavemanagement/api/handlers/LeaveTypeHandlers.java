@@ -2,7 +2,9 @@ package kz.sabyrzhan.hrleavemanagement.api.handlers;
 
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.CreateLeaveTypeDTO;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leavetype.LeaveTypeDTO;
+import kz.sabyrzhan.hrleavemanagement.core.application.features.common.requests.commands.DeleteItemCommand;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.commands.CreateLeaveTypeCommandHandler;
+import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.commands.DeleteLeaveTypeCommandHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.commands.UpdateLeaveTypeCommandHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.queries.GetLeaveTypeDetailRequestHandler;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.handlers.queries.GetLeaveTypeListRequestHandler;
@@ -23,15 +25,18 @@ public class LeaveTypeHandlers {
     private final GetLeaveTypeDetailRequestHandler leaveTypeDetailRequestHandler;
     private final CreateLeaveTypeCommandHandler createLeaveTypeCommandHandler;
     private final UpdateLeaveTypeCommandHandler updateLeaveTypeCommandHandler;
+    private final DeleteLeaveTypeCommandHandler deleteLeaveTypeCommandHandler;
 
     public LeaveTypeHandlers(GetLeaveTypeListRequestHandler leaveTypesRequestHandler,
                              GetLeaveTypeDetailRequestHandler leaveTypeDetailRequestHandler,
                              CreateLeaveTypeCommandHandler createLeaveTypeCommandHandler,
-                             UpdateLeaveTypeCommandHandler updateLeaveTypeCommandHandler) {
+                             UpdateLeaveTypeCommandHandler updateLeaveTypeCommandHandler,
+                             DeleteLeaveTypeCommandHandler deleteLeaveTypeCommandHandler) {
         this.leaveTypesRequestHandler = leaveTypesRequestHandler;
         this.leaveTypeDetailRequestHandler = leaveTypeDetailRequestHandler;
         this.createLeaveTypeCommandHandler = createLeaveTypeCommandHandler;
         this.updateLeaveTypeCommandHandler = updateLeaveTypeCommandHandler;
+        this.deleteLeaveTypeCommandHandler = deleteLeaveTypeCommandHandler;
     }
 
     public Mono<ServerResponse> getLeaveTypes(ServerRequest serverRequest) {
@@ -53,5 +58,14 @@ public class LeaveTypeHandlers {
         return Mono
                 .from(serverRequest.bodyToMono(LeaveTypeDTO.class))
                 .flatMap(updateDTO -> ServerResponse.ok().body(updateLeaveTypeCommandHandler.handle(new UpdateLeaveTypeCommand(updateDTO)), LeaveTypeDTO.class));
+    }
+
+    public Mono<ServerResponse> deleteLeaveType(ServerRequest serverRequest) {
+        return Mono
+                .fromSupplier(() -> {
+                    var id = Integer.parseInt(serverRequest.pathVariable("id"));
+                    return new DeleteItemCommand(id);
+                })
+                .flatMap(deleteCommand -> ServerResponse.noContent().build(deleteLeaveTypeCommandHandler.handle(deleteCommand)));
     }
 }

@@ -22,6 +22,7 @@ public class Routers {
                 .route(RequestPredicates.GET("/api/leaveTypes"), leaveTypeHandlers::getLeaveTypes)
                 .andRoute(RequestPredicates.GET("/api/leaveTypes/{id}"), leaveTypeHandlers::getLeaveTypeById)
                 .andRoute(RequestPredicates.POST("/api/leaveTypes"), leaveTypeHandlers::createLeaveType)
-                .andRoute(RequestPredicates.PUT("/api/leaveTypes/{id}"), leaveTypeHandlers::updateLeaveType);
+                .andRoute(RequestPredicates.PUT("/api/leaveTypes"), leaveTypeHandlers::updateLeaveType)
+                .andRoute(RequestPredicates.DELETE("/api/leaveTypes/{id}"), leaveTypeHandlers::deleteLeaveType);
     }
 }
