@@ -1,8 +1,8 @@
 # HR leave management system in Java and Spring
 ## Overview
 > WARNING:The project itself was not tested for stable working
-> since it s just a learning project. It does not include ant
-> unit tests and UI part, but only REST API.
+> since it s just a learning project. It does not include any
+> `unit tests` and `UI` part, but only REST API.
 
 Practice project to learn SOLID principle and CQRS in Java.
 
