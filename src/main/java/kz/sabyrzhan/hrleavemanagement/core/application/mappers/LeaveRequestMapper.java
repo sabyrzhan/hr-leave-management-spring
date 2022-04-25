@@ -12,6 +12,7 @@ public interface LeaveRequestMapper {
     LeaveRequestListDTO convertToListDTO(LeaveRequest from);
     LeaveRequestDTO convertToDTO(LeaveRequest from);
     LeaveRequest createFromDTO(LeaveRequestDTO from);
+    LeaveRequest createFromCreateDTO(CreateLeaveRequestDTO from);
     CreateLeaveRequestDTO copyFromUpdateRequestDTO(UpdateLeaveRequestDTO from);
     void updateLeaveRequest(UpdateLeaveRequestDTO source, LeaveRequest target);
     void updateChangeApproval(ChangeLeaveRequestApprovalDTO source, LeaveRequest target);

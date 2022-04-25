@@ -2,8 +2,10 @@ package kz.sabyrzhan.hrleavemanagement.core.application.features.leaverequests.r
 
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.ChangeLeaveRequestApprovalDTO;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 public class ChangeLeaveRequestApprovalCommand {
-    private ChangeLeaveRequestApprovalDTO changeApproval;
+    private final ChangeLeaveRequestApprovalDTO changeApproval;
 }

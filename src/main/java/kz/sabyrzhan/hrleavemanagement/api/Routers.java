@@ -1,6 +1,7 @@
 package kz.sabyrzhan.hrleavemanagement.api;
 
 import kz.sabyrzhan.hrleavemanagement.api.handlers.LeaveAllocationHandlers;
+import kz.sabyrzhan.hrleavemanagement.api.handlers.LeaveRequestHandlers;
 import kz.sabyrzhan.hrleavemanagement.api.handlers.LeaveTypeHandlers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class Routers {
     private final LeaveTypeHandlers leaveTypeHandlers;
     private final LeaveAllocationHandlers leaveAllocationHandlers;
+    private final LeaveRequestHandlers leaveRequestHandlers;
 
     @Bean
     public RouterFunction<ServerResponse> routerFunctions() {
@@ -36,6 +38,19 @@ public class Routers {
                         .PUT("/{id}", leaveAllocationHandlers::updateLeaveAllocation)
                         .GET("", leaveAllocationHandlers::getLeaveAllocationsList)
                         .GET("/{id}", leaveAllocationHandlers::getLeaveAllocationDetails))
+                .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> leaveRequestRouters() {
+        return RouterFunctions.route()
+                .path("/api/leaveRequests", builder -> builder
+                        .PUT("/{id}/changeApproval", leaveRequestHandlers::changeApprovalStatus)
+                        .POST("", leaveRequestHandlers::createLeaveRequest)
+                        .DELETE("/{id}", leaveRequestHandlers::deleteLeaveRequest)
+                        .PUT("/{id}", leaveRequestHandlers::updateLeaveRequest)
+                        .GET("/{id}", leaveRequestHandlers::getLeaveRequestDetails)
+                        .GET("", leaveRequestHandlers::getLeaveRequestList))
                 .build();
     }
 }
