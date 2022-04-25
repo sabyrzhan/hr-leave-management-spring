@@ -12,6 +12,7 @@ import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.reque
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.commands.UpdateLeaveTypeCommand;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.queries.GetLeaveTypeDetailRequest;
 import kz.sabyrzhan.hrleavemanagement.core.application.features.leavetypes.requests.queries.GetLeaveTypeListRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -20,24 +21,13 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class LeaveTypeHandlers {
     private final GetLeaveTypeListRequestHandler leaveTypesRequestHandler;
     private final GetLeaveTypeDetailRequestHandler leaveTypeDetailRequestHandler;
     private final CreateLeaveTypeCommandHandler createLeaveTypeCommandHandler;
     private final UpdateLeaveTypeCommandHandler updateLeaveTypeCommandHandler;
     private final DeleteLeaveTypeCommandHandler deleteLeaveTypeCommandHandler;
-
-    public LeaveTypeHandlers(GetLeaveTypeListRequestHandler leaveTypesRequestHandler,
-                             GetLeaveTypeDetailRequestHandler leaveTypeDetailRequestHandler,
-                             CreateLeaveTypeCommandHandler createLeaveTypeCommandHandler,
-                             UpdateLeaveTypeCommandHandler updateLeaveTypeCommandHandler,
-                             DeleteLeaveTypeCommandHandler deleteLeaveTypeCommandHandler) {
-        this.leaveTypesRequestHandler = leaveTypesRequestHandler;
-        this.leaveTypeDetailRequestHandler = leaveTypeDetailRequestHandler;
-        this.createLeaveTypeCommandHandler = createLeaveTypeCommandHandler;
-        this.updateLeaveTypeCommandHandler = updateLeaveTypeCommandHandler;
-        this.deleteLeaveTypeCommandHandler = deleteLeaveTypeCommandHandler;
-    }
 
     public Mono<ServerResponse> getLeaveTypes(ServerRequest serverRequest) {
         return ServerResponse.ok().body(leaveTypesRequestHandler.handle(new GetLeaveTypeListRequest()), List.class);

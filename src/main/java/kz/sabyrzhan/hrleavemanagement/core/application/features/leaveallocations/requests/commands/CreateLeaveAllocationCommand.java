@@ -2,8 +2,10 @@ package kz.sabyrzhan.hrleavemanagement.core.application.features.leaveallocation
 
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaveallocation.CreateLeaveAllocationDTO;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 public class CreateLeaveAllocationCommand {
-    private CreateLeaveAllocationDTO leaveAllocation;
+    private final CreateLeaveAllocationDTO leaveAllocation;
 }
