@@ -3,6 +3,7 @@ package kz.sabyrzhan.hrleavemanagement.core.application.mappers;
 import kz.sabyrzhan.hrleavemanagement.core.application.dto.leaverequest.*;
 import kz.sabyrzhan.hrleavemanagement.core.domain.LeaveRequest;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
@@ -14,6 +15,6 @@ public interface LeaveRequestMapper {
     LeaveRequest createFromDTO(LeaveRequestDTO from);
     LeaveRequest createFromCreateDTO(CreateLeaveRequestDTO from);
     CreateLeaveRequestDTO copyFromUpdateRequestDTO(UpdateLeaveRequestDTO from);
-    void updateLeaveRequest(UpdateLeaveRequestDTO source, LeaveRequest target);
-    void updateChangeApproval(ChangeLeaveRequestApprovalDTO source, LeaveRequest target);
+    void updateLeaveRequest(UpdateLeaveRequestDTO source, @MappingTarget LeaveRequest target);
+    void updateChangeApproval(ChangeLeaveRequestApprovalDTO source, @MappingTarget LeaveRequest target);
 }

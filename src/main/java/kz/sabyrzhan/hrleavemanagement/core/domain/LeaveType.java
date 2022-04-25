@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Table
+@Table("leave_types")
 public class LeaveType extends BaseDomainEntity {
     @Column("name")
     private String name;

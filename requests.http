@@ -1,0 +1,8 @@
+### Get leave types
+GET http://localhost:8080/api/leaveTypes
+
+### Get leave type by ID
+GET http://localhost:8080/api/leaveTypes/1
+
+### Get leave allocations
+GET http://localhost:8080/api/leaveAllocations
