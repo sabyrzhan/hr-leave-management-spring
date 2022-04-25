@@ -1,6 +1,6 @@
 # HR leave management system in Java and Spring
 ## Overview
-Practice project to learn SOLID principle and CQRS.
+Practice project to learn SOLID principle and CQRS in Java.
 
 > WARNING:The project itself was not tested for stable working
 > since it s just a learning project. It does not include ant 
